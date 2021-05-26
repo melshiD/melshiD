@@ -1,0 +1,99 @@
+pragma solidity ^0.8.0;
+pragma experimental ABIEncoderV2;
+
+//import "./wallet.sol";
+//The user must have ETH deposited such that eth >= buy order value
+//The user must have enough tokens deposited such that token balnce >= sell order amount
+//The BUY order book should be ordered on price from highest to lowest starting at index 0
+//The SELL order book should be ordered on price from lowest to highest starting at index 0?
+    /*
+    Order book functionality:
+    INPUT new order (createLimitOrder)
+    COMPARE asks to bids/bids to asks.  If there is a trade to be settled
+        RETREIVE specific orderBook
+    EXECUTE trade.  After most recent trade is fully/partially resolved, continue comparing the top of the books
+                    If there is no trade to be made
+    PLACE new order at correct index.
+    
+    each operation must check for appropriate funds before generating the order struct
+    emit events for successful trade settlement or order placement
+    
+    */
+    
+contract Dex{
+    
+    enum Side{
+    BUY,
+    SELL
+    }
+    
+    struct Order{
+        uint id;
+        address trader;
+        Side side;
+        bytes32 ticker;
+        uint amount;
+        uint price;
+    }
+
+    uint public orderIds = 1;//compareOrderToBooks doesn't work if IDs are set as 0.
+
+    mapping(bytes32 => mapping(uint => Order[])) public orderBook;
+    
+    function incrimentOrderIds() private{
+        orderIds ++;
+    }
+
+    function createLimitOrder(Side side, uint ticker, uint amount, uint price) public returns(Order memory){ //using uint as type for passing to this function.  Not sure how else to develop otherwise.
+        //check that msg.sender has sufficient ETH or other token in regards to new order
+        bytes32 byteTicker = bytes32(ticker);//wacky conversion so I can use REMIX to develop set of AMM functions
+        Order memory newOrder = Order(orderIds, msg.sender, side, byteTicker, amount, price);
+        incrimentOrderIds();
+        compareOrderToBooks(newOrder);//check to see if there is a trade that may be settled
+        return newOrder;
+        
+    }
+
+    function getOrderBook(bytes32 ticker, Side side) view public returns(Order[] memory){
+        return orderBook[ticker][uint(side)];
+    }
+    
+    
+    
+    function compareOrderToBooks(Order memory newOrder) public{//no return type needed as I see it right now
+        //compare new buy order to top sell order in sell book
+        if(newOrder.side == Side.BUY){
+            //top of order book is not empty AND the price is right
+            if(newOrder.price >= getOrderBook(newOrder.ticker, Side.SELL)[0].price && getOrderBook(newOrder.ticker, Side.SELL)[0].id != 0){
+                executeTrade(newOrder, getOrderBook(newOrder.ticker, Side.SELL)[0]);
+            }
+        }
+        //compare new sell order to top buy order in buy book
+        else{
+            if(newOrder.price <= getOrderBook(newOrder.ticker, Side.BUY)[0].price && getOrderBook(newOrder.ticker, Side.BUY)[0].id != 0){
+                executeTrade(getOrderBook(newOrder.ticker, Side.SELL)[0], newOrder);
+            }
+        }
+        //placeInBook()
+    }
+    
+    
+    function executeTrade(Order memory buyOrder, Order memory sellOrder) private returns(Order memory amendedOrder){
+        //function body:  Needs to adjust the applicable trades, and if there are uncomplete portions, then then
+        //function needs to call the compare function again until all resolvable trades have been resolved
+        
+    }
+    
+    /*
+        struct Order{
+        uint id;
+        address trader;
+        Side side;
+        bytes32 ticker;
+        uint amount;
+        uint price;
+    }
+    mapping(bytes32 => mapping(uint => Order[])) public orderBook;*/
+    
+    
+}
