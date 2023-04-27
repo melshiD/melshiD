@@ -1,1 +1,1 @@
-Web Software Engineer waving the magic wand at the browser.
+Web Designer riding on a wave of JSON.
