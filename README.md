@@ -16,7 +16,7 @@ Welcome to my corner of the internet! 🌐 I'm a **Frontend Web Developer** by t
 ## 🧰 **Tech Stack & Tools**
 - **Languages**: JavaScript, PHP, Python 🐍, Google Apps Script (I'm assuming html and css are implied, but let's say it anyway)
 - **Frontend**: customElements, Vue, React, WebGL 🖌️, whatever design system you like, three.js, gsap
-- **Backend**: PHP (sometimes Laravel/Inertia/Statamic), Node.js, Flask
+- **Backend**: PHP (sometimes Laravel/Inertia/Statamic), Node.js, Next.js, Flask
 - **Tools**: Git, NPM, Docker 🐳, ChatGPT
 - **Design**: Illustrator, Figma, Canva, Dalle
 - **Philosophy**: It'll take a different net to catch a rhino from the net that catches the birdie.
@@ -35,15 +35,14 @@ Welcome to my corner of the internet! 🌐 I'm a **Frontend Web Developer** by t
 
 I'm always working to **deepen** my expertise while navigating the breadth of my role. Being a developer isn't just about solving problems — it's about discovering them in the first place.
 
-✨ I aim to write elegant, maintainable code that stands the test of time (and project pivots). I take pride in understanding the "why" behind what I build and empowering others through collaboration and shared knowledge.
+✨ I aim to write elegant, maintainable code that stands the test of time (and project pivots). I enjoy understanding the "why" behind what I build and empowering others through collaboration and shared knowledge.
 
 ---
 
 ## 🤝 **Let's Connect**
 
 If you'd like to chat about code, experiments, or even philosophy over coffee (virtual or otherwise ☕), you can find me here:
-- 🌐 [Portfolio Site] - *Link coming soon!* 🚧
-- 📧 [Your Email Address]
+- 🌐 [Portfolio Site] (https://damelsh.pages.iu.edu)
 - 💬 Open to collaborations, advice, and cool ideas.
 
 ---
