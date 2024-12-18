@@ -52,5 +52,3 @@ If you'd like to chat about code, experiments, or even philosophy over coffee (v
 ---
 
 *Thanks for stopping by! Whether you're a seasoned developer, a curious coder, or both.  Keep exploring, keep experimenting, and keep building.* 🚀
-
-![Keep Coding](https://img.shields.io/badge/Keep-Coding-blue?style=flat-square)
