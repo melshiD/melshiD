@@ -17,7 +17,7 @@ Welcome to my corner of the internet! 🌐 I'm a **Frontend Web Developer** by t
 - **Languages**: JavaScript, PHP, Python 🐍, Google Apps Script (I'm assuming html and css are implied, but let's say it anyway)
 - **Frontend**: customElements, Vue, React, WebGL 🖌️, whatever design system you like, three.js, gsap
 - **Backend**: PHP (sometimes Laravel/Inertia/Statamic), Node.js, Next.js, Flask
-- **Tools**: Git, NPM, Docker 🐳, ChatGPT
+- **Tools**: Git, NPM, Docker 🐳, ChatGPT, Qualtrics
 - **Design**: Illustrator, Figma, Canva, Dalle
 - **Philosophy**: It'll take a different net to catch a rhino from the net that catches the birdie.
 
